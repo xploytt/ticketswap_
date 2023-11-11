@@ -34,7 +34,7 @@ The Event Ticketing Web App is a Flask-based web server designed to facilitate t
 
 3. Set up configuration:
 
-   -No `.env` file needed as it is a simple application
+   - Create a `.env` file based on the provided `.env.example`.
 
 4. Run the application:
 
@@ -42,7 +42,7 @@ The Event Ticketing Web App is a Flask-based web server designed to facilitate t
    python app.py
    ```
 
-5. Access the app at [http://localhost:5000](http://localhost:5000) make sure to configure the appropriate port. I'm using port 5000.
+5. Access the app at [http://localhost:5000](http://localhost:5000).
 
 ## Usage
 
@@ -51,3 +51,36 @@ The Event Ticketing Web App is a Flask-based web server designed to facilitate t
 - Create event listings with detailed information.
   -Event links to purchase the ticket will be sent to the buyer email, or:
 - Share private links generated for each event for ticket purchases.
+
+## Configuration
+
+The application uses environment variables for configuration. You can customize the configuration by creating a `.env` file based on the provided `.env.example`. This file should include details such as secret keys, mail server configuration, and other sensitive information.
+
+## Features
+
+- **User Authentication**: Secure login using a passcode.
+- **Event Creation**: Create private event listings with details.
+- **Ticket Purchase**: Generate private links for ticket purchases.
+- **Email Notifications**: Send HTML email notifications for private listings.
+
+## Dependencies
+
+- Flask
+- Flask-Login
+- Flask-Mail
+- Flask-WTF
+- pandas
+- wtforms
+- ...
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+```
+
+```
