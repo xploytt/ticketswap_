@@ -31,17 +31,13 @@ The Event Ticketing Web App is a Flask-based web server designed to facilitate t
    pip install -r requirements.txt
    ```
 
-3. Set up configuration:
-
-   - Create a `.env` file based on the provided `.env.example`.
-
-4. Run the application:
+3. Run the application:
 
    ```bash
    python app.py
    ```
 
-5. Access the app at [http://localhost:5000](http://localhost:5000).
+4. Access the app at [http://localhost:5000](http://localhost:5000).
 
 ## Usage
 
