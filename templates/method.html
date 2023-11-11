@@ -1,0 +1,148 @@
+{% extends "base_method_cart.html" %}
+
+{% block title %}
+Payment method – Buy and sell tickets – TicketSwap
+{% endblock %}
+
+{% block headStyle %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/method.css')}}">
+<style>
+    p.display-false{
+        display: none;
+    }
+    input.cc-input.err{
+        border: 1px solid red;
+    }
+</style>
+{{super()}}
+<script src="{{url_for('static', filename='js/method.js')}}" defer></script>
+{% endblock %}
+
+{% block content %}
+
+<div id="paypal-feedback" data-hidden="true">
+    <svg id="paypal-cancel" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"></path></svg>
+    <h2>We are sorry</h2>
+    <p></p>
+</div>
+
+<section id="content">
+            <h2>
+                Payment method
+            </h2>
+            <p>
+                Choose your preferred payment method. We'll save your preference for next time.
+            </p>
+
+            <div id="payment-options">
+                <h4>
+                    Payment method
+                </h4>
+
+                <div id='selected-payment-method'>
+                   <span id="select-text">
+                    Select your payment method
+                   </span>
+                   <span>
+                    <svg aria-label="ArrowDown" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" class="css-1nanc4n e1ouvt3m0"><path d="M18.433 23.947l8.61-9.432A3.294 3.294 0 0 0 24.61 9H7.39a3.294 3.294 0 0 0-2.433 5.515l8.61 9.432a3.294 3.294 0 0 0 4.866 0z"></path></svg>
+                   </span>
+                </div>
+
+                <div id="different-payment-method" data-visible="false">
+                    <div class="highlight-payment" data-paymentType="{{avail_methods[0]['paymentType']}}">{{avail_methods[0]['name']}}</div>
+                    {% for method in avail_methods[1:] %}
+                        <div data-paymentType="{{method['paymentType']}}">
+                            <img src="{{url_for('static', filename=method['image_path'])}}" alt="">
+                            <span>{{method['name']}}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <form action="" class="cc-details paywidget" data-visible="false" data-paymentType="cc">
+
+                    <div id="card">
+                        <label for="card-num">Card number</label><br>
+                        <input type="text" id="card-num" autocomplete="cc-number" autocorrect="off"
+                        spellcheck="false" inputmode="numeric" placeholder="1234 1234 1234 1234" class="cc-input">
+                        <p style="color:red" class="display-false cc-warn"> Carefully re-write your card number</p>
+                    </div>
+
+                    <svg class="creditCardLogo css-naclm4 evqaqko0" aria-label="Master Card">
+                        <g><g clip-path="url(#clip0)"><path d="M16.425 5.71h-7v12.58h7V5.71z" fill="#FF5F00">
+
+                        </path><path d="M9.87 12a7.986 7.986 0 013.055-6.29 8 8 0 100 12.58A7.987 7.987 0 019.869 12z" fill="#EB001B">
+                        </path><path d="M25.868 12a8 8 0 01-12.943 6.29 8.001 8.001 0 000-12.58A8 8 0 0125.868 12zM25.105 16.957v-.258h.104v-.052h-.265v.053h.104v.257h.057zm.513 0v-.31h-.08l-.094.213-.093-.213h-.081v.31h.057v-.234l.087.202h.06l.087-.203v.235h.057z" fill="#F79E1B"></path></g><defs>
+                            <clipPath id="clip0"><path fill="#fff" d="M0 0h26v24H0z"></path></clipPath></defs></g></svg>
+                                            
+                            <svg class="creditCardLogo css-naclm4 evqaqko0" aria-label="American Express"><g>
+                                <path d="M1.007 3h18v9.717l-.89 1.392.89 1.24V21h-18v-9.16l.557-.64-.557-.613V3z" fill="#016FD0"></path>
+                                <path d="M4.502 15.543v-2.826h2.992l.32.418.333-.418h10.86v2.63s-.283.193-.612.196h-6.014l-.362-.446v.446h-1.186v-.76s-.162.106-.512.106h-.404v.654H8.121l-.32-.428-.326.428H4.502zM1.007 10.587l.675-1.573H2.85l.383.88v-.88h1.45l.229.637.22-.637h6.512v.32s.343-.32.905-.32l2.113.007.376.87v-.877h1.214l.334.5v-.5h1.225v2.826h-1.225l-.32-.502v.502h-1.783l-.18-.446h-.48l-.176.446h-1.21c-.483 0-.793-.314-.793-.314v.314H9.82l-.362-.446v.446H2.676l-.18-.446H2.02l-.178.446h-.834v-1.253z" fill="#fff"></path>
+                                <path d="M1.92 9.362l-.91 2.116h.593l.168-.423h.976l.167.423h.606l-.91-2.116h-.69zm.338.493l.297.74H1.96l.299-.74zM3.583 11.478V9.362l.842.003.49 1.364.478-1.367h.835v2.116h-.53v-1.56l-.56 1.56h-.464l-.562-1.56v1.56h-.53zM6.59 11.478V9.362h1.726v.473H7.124v.362h1.164v.446H7.124v.375h1.192v.46H6.59zM8.622 9.362v2.116h.53v-.751h.222l.634.751h.647l-.696-.78a.644.644 0 00.58-.65c0-.444-.35-.686-.74-.686H8.623zm.53.474h.604c.145 0 .25.113.25.222 0 .141-.136.223-.242.223H9.15v-.445zM11.295 11.478h-.54V9.362h.54v2.116zM12.576 11.478h-.117c-.564 0-.906-.445-.906-1.05 0-.62.338-1.066 1.05-1.066h.585v.501h-.606c-.289 0-.493.226-.493.57 0 .41.234.583.57.583h.14l-.223.462zM13.727 9.362l-.91 2.116h.592l.168-.423h.977l.167.423h.605l-.909-2.116h-.69zm.337.493l.297.74h-.596l.299-.74zM15.388 11.478V9.362h.673l.858 1.33v-1.33h.53v2.116h-.651l-.88-1.364v1.364h-.53zM4.864 15.181v-2.116H6.59v.473H5.398v.362h1.164v.446H5.398v.376H6.59v.459H4.864zM13.322 15.181v-2.116h1.726v.473h-1.191v.362h1.158v.446h-1.158v.376h1.191v.459h-1.726zM6.657 15.181l.84-1.045-.86-1.071h.666l.513.662.514-.662h.64l-.849 1.058.842 1.058h-.666l-.498-.652-.485.652h-.657zM9.026 13.065v2.117h.543v-.669h.557c.471 0 .828-.25.828-.736 0-.402-.28-.712-.76-.712H9.027zm.543.479h.586c.153 0 .261.093.261.244 0 .14-.108.243-.262.243h-.585v-.487zM11.184 13.065v2.116h.529v-.752h.223l.634.752h.646l-.696-.78a.644.644 0 00.58-.65c0-.445-.349-.686-.739-.686h-1.177zm.529.473h.605c.145 0 .25.114.25.223 0 .14-.137.223-.243.223h-.612v-.446zM15.293 15.181v-.46h1.06c.156 0 .224-.084.224-.177 0-.089-.068-.179-.225-.179h-.478c-.416 0-.648-.253-.648-.634 0-.339.212-.666.83-.666h1.03l-.222.476h-.891c-.17 0-.223.09-.223.175 0 .088.065.184.195.184h.501c.464 0 .665.263.665.607 0 .37-.224.674-.69.674h-1.127zM17.235 15.181v-.46h1.059c.156 0 .224-.084.224-.177 0-.089-.067-.179-.224-.179h-.479c-.416 0-.647-.253-.647-.634 0-.339.212-.666.83-.666h1.03l-.223.476h-.89c-.17 0-.223.09-.223.175 0 .088.064.184.195.184h.5c.464 0 .665.263.665.607 0 .37-.224.674-.69.674h-1.127z" fill="#016FD0">
+
+                                </path></g>
+                    </svg>
+
+                    <svg class="creditCardLogo css-naclm4 evqaqko0" aria-label="Visa">
+                        <g>
+                            <path d="M18.015 18.375h-3.286l2.055-12.708h3.286l-2.055 12.708zM29.926 5.978a8.098 8.098 0 00-2.947-.541c-3.245 0-5.53 1.73-5.544 4.204-.027 1.825 1.636 2.839 2.88 3.447 1.271.622 1.703 1.028 1.703 1.582-.012.852-1.027 1.244-1.973 1.244-1.312 0-2.015-.202-3.083-.676l-.433-.203-.46 2.853c.771.35 2.191.662 3.665.676 3.448 0 5.693-1.704 5.72-4.34.012-1.447-.866-2.555-2.759-3.46-1.15-.582-1.853-.974-1.853-1.57.014-.54.595-1.094 1.893-1.094a5.583 5.583 0 012.447.487l.297.135.447-2.744zM34.293 13.873l1.312-3.556c-.013.027.27-.743.432-1.216l.23 1.095s.622 3.042.757 3.677h-2.73zm4.056-8.206h-2.541c-.784 0-1.38.23-1.718 1.054l-4.88 11.654h3.447l.69-1.907h4.219c.094.446.392 1.907.392 1.907H41L38.35 5.667zM11.985 5.667l-3.218 8.665-.352-1.757c-.595-2.028-2.46-4.231-4.543-5.327L6.82 18.361h3.474L15.46 5.667h-3.474z" fill="#00579F">
+                            </path>
+                            <path d="M5.779 5.667H.492l-.054.257c4.124 1.054 6.855 3.596 7.977 6.651l-1.15-5.84c-.188-.811-.77-1.041-1.486-1.068z" fill="#FAA61A"></path></g></svg>
+
+                    <div id="cvc-exp">
+                        <div id="exp-date-div">
+                            <label for="exp-date">Expiration date</label><br>
+                            <div id="exp-pseudo-div">
+                            <input type="text" id="exp-date" autocomplete="cc-number" autocorrect="off"
+                            spellcheck="false" inputmode="numeric" placeholder="MM / YY" class="cc-input">
+                            </div>
+                        </div>
+
+                        <div id="cvc-div">
+                            <label for="cvc">CVC</label><br>
+                            <input type="text" id="cvc" autocomplete="cc-number" autocorrect="off"
+                            spellcheck="false" inputmode="numeric" placeholder="CVC" class="cc-input">
+                        </div>
+                    </div>
+
+                    <div id="cname-div">
+                        <label for="cname">Cardholder name</label><br>
+                        <input id="ccname" aria-label="Cardholder name"
+                        name="ccname" autocomplete="cc-name" class="css-m2lhz5 e1as1vyb0 cc-input">
+                    </div>
+                </form>
+                
+                <form data-paymentType="paypal" class="paywidget" data-visible="false"></form>
+                <div data-visible="false" data-paymentType='zelle' id="zelle" class="paywidget">
+                    <div>
+                        <div id="ig-logo">
+                            {% if (payment_type) == "Paypal" %}
+                            <img src="../static/assets/paypal.png" alt="Paypal Logo">
+                            {% else %}
+                            <img src="../static/assets/zelle.png" alt="Zelle Logo">
+                            {% endif %}
+                            
+                        </div>
+                        <p>
+                            {{payment_type}} Checkout <br>
+                            <span>Make a {{payment_type}} transfer to the below account</span>
+                            <a href="#">{{payment_mail}}</a>
+                        </p>
+                    </div>
+                    <div id="zelle-btns">
+                        <button id="paid">I've made the payment</button>
+                        <button id="cancel-zelle">Cancel</button>
+                    </div>
+                </div>
+                <div id="method-btns">
+                        <div id="cont-btn">
+                            <button type="submit">Continue</button>
+                        </div>
+
+                        <div id="prev-btn">
+                            <button type="button">
+                                <svg aria-label="ChevronLeft" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" class="css-1nanc4n e1ouvt3m0"><path d="M13.828 16l6.586-6.586a2 2 0 1 0-2.828-2.828l-8 8a2 2 0 0 0 0 2.828l8 8c.39.391.902.586 1.414.586a2 2 0 0 0 1.414-3.414L13.828 16z"></path></svg>
+                                <span>Previous</span></button>
+                        </div>
+                    </div>
+        </section>
+{% endblock %}

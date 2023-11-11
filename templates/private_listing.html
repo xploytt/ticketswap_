@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Listing</title>
+
+<style>
+    input{
+        width: 70%;
+        padding: 15px;
+        max-width: 600px;
+        margin: 20px;
+    }
+    input:focus{
+        outline: none;
+    }
+
+    form{
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    label{
+        margin: 20px;
+        font-size: 1.5rem;
+    }
+
+    h2, p{
+        text-align: center;
+    }
+    .payment-type-radio > input{
+        width: 3rem;
+        margin-right: 0;
+    }
+</style>
+
+
+</head>
+<body>
+    <h2>Private Listing</h2>
+    <p>Fill in the details below</p>
+
+    <form action="{{url_for('send_listing')}}" method="post">
+        {{form.csrf_token}}
+        {{form.buyer_mail.label}} <br>
+        {{form.buyer_mail}}<br>
+
+        {% if form.buyer_mail.errors %}
+        <ul class=errors>
+        {% for error in form.buyer_mail.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        {{form.evt_name.label}}<br>
+        {{form.evt_name}}<br>
+
+        {% if form.evt_name.errors %}
+        <ul class=errors>
+        {% for error in form.evt_name.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        {{form.evt_price.label}}<br>
+        {{form.evt_price}}<br>
+
+        {% if form.evt_price.errors %}
+        <ul class=errors>
+        {% for error in form.evt_price.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        {{form.evt_centre.label}}<br>
+        {{form.evt_centre}}<br>
+
+        {% if form.evt_centre.errors %}
+        <ul class=errors>
+        {% for error in form.evt_centre %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+
+
+        {{form.evt_city.label}}<br>
+        {{form.evt_city}}<br>
+
+        {% if form.evt_city.errors %}
+        <ul class=errors>
+        {% for error in form.evt_city.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        {{form.evt_dt.label}}<br>
+        {{form.evt_dt}}<br>
+
+        {% if form.evt_dt.errors %}
+        <ul class=errors>
+        {% for error in form.evt_dt.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        {{form.max_tix.label}}<br>
+        {{form.max_tix}}<br>
+
+        {% if form.max_tix.errors %}
+        <ul class=errors>
+        {% for error in form.max_tix.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        {{form.img_url.label}}<br>
+        {{form.img_url}}<br>
+
+        {% if form.img_url.errors %}
+        <ul class=errors>
+        {% for error in form.img_url.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        <p>Select payment type</p>
+        {% for field in form.payment_type %}
+        <div class="payment-type-radio">
+            {{field}}{{field.label}}
+        </div>
+        {% endfor %} <br>
+
+        {{form.payment_mail.label}} <br>
+        {{form.payment_mail}}<br>
+
+        {% if form.payment_mail.errors %}
+        <ul class=errors>
+        {% for error in form.payment_mail.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+
+        {{form.currency_type.label}} <br>
+        {{form.currency_type}}<br>
+
+        {% if form.currency_type.errors %}
+        <ul class=errors>
+        {% for error in form.currency_type.errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+
+        {{form.submit}}
+    </form>
+</body>
+</html>

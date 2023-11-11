@@ -1,0 +1,4 @@
+edit csv fil,add currency to the column
+get access to the data in the send-listing route
+events route,events html- currency
+send-listing- html

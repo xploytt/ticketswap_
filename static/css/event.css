@@ -1,0 +1,559 @@
+*, *::after, *::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+}
+button:focus{
+    outline: none;
+    border: none;
+}
+
+.faqs-arrow svg, #num-of-tix svg, #pricing-detail svg{
+    fill: #00b6f0;
+}
+
+section:not(section:first-child){
+    padding: .5rem 1rem;
+}
+
+#mobile-ticket-content{
+    padding-top: 2rem;
+}
+ul{
+    list-style: none;
+}
+
+#close-hamburger[data-bool='true']{
+    display: none;
+}
+
+#seller-details, header, #search, #pricing-detail, #tix-quantity{
+    display: flex;
+    align-items: center;
+}
+header{
+    position: absolute;
+    left: 3%;
+    right: 2%;
+    top: 2%;
+}
+header #logo svg{
+    width: 120%;
+}
+header #side-el > ul > li:not(header #side-el ul > li:first-child){
+    display: none;
+}
+#search{
+    width: 30%;
+    margin-left: auto;
+    gap: 0.5rem;
+}
+#search svg{
+    width: 40%;
+}
+#sell-tix{
+    display: none;
+}
+
+#head svg{
+    fill: white;
+}
+
+#head #background-image{
+    width: 100%;
+    vertical-align: middle;
+    transition: opacity 200ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    opacity: 1;
+    object-fit: cover;
+    z-index: -3;
+}
+
+#background-image img{
+    width: 100%;
+}
+
+#mobile-ticket-content #event-name{
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+#mobile-ticket-content #location, #mobile-ticket-content #date-time{
+    color: #667175;
+    margin-top: 10px;
+}
+
+
+#num-of-tix svg{
+    width: 2rem;
+}
+
+#num-of-tix{
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    margin-right: auto;
+}
+
+#num-of-tix button, .faqs-arrow{
+    border: none;
+    background-color: #effdff;
+    border-radius: 50%;
+    padding: .5rem;
+}
+
+#pricing-detail{
+    display: inline-flex;
+    gap: .5rem;
+}
+
+#tix-quantity{
+    flex-wrap: wrap;
+}
+#tix-quantity, #outer-sellers-details{
+    border: 1.5px solid #d7dfe7;
+    border-radius: 1rem;
+    padding: 10px 1rem;
+    margin-top: 20px;
+}
+
+#buy-tix-btn, #buy-tix-btn button{
+    width: 100%;
+    margin: 5px 0 10px;
+}
+
+#buy-tix-btn{
+    width: 100%;
+}
+
+#buy-tix-btn button{
+    position: relative;
+    height: 3.5rem;
+    border-radius: 0.6rem;
+    font-size: 1.3rem;
+    border: none;
+    background-image: linear-gradient( to bottom, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) );
+    background-color: #00b6f0;
+    color: white;
+    font-weight: 450;
+}
+#buy-tix-btn small{
+    color: #667175;
+    display: block;
+    text-align: center;
+}
+
+#pricing-detail svg{
+    width: 1.5rem;
+}
+
+#pricing-detail > span:first-child{
+    font-weight: 450;
+    font-size: 1.3rem;
+}
+
+#seller-pp-div{
+    margin-right: auto;
+}
+
+#seller-pp-div img{
+    width: 3rem;
+    border-radius: 50%;
+}
+#seller-pp-div p{
+    font-size: 1rem;
+    font-weight: 450;
+    margin-top: 5px;
+}
+#verification-div svg{
+    width: 1rem;
+    fill: #00ce5c;
+}
+
+#verification-div{
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+}
+#seller-details{
+    padding: 20px 3rem;
+    margin: 0 auto;
+    max-width: 500px;
+    gap: .5rem;
+}
+
+#faqs{
+    margin-top: 50px;
+}
+
+#faqs > h3{
+    font-size: 1.5rem;
+}
+
+.faqs-arrow svg{
+    width: 1rem;
+}
+
+#faqs-questions .answer{
+    display: block;
+}
+
+#faqs-questions li{
+    padding: .8rem 0 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+     border-bottom: 1.5px solid #e5e7e8;
+}
+
+#faqs-questions li > span:first-child{
+    width: 85%;
+    margin-right: auto;
+    font-weight: 500;
+}
+#faqs-questions li > span:last-child{
+    display: block;
+}
+#faqs-questions{
+    margin-top: 20px;
+}
+
+ul *{
+    color: #1a2129;
+}
+
+#faqs-questions > li[data-view='closed'] span.answer{
+    display: none;
+}
+
+.faqs-arrow svg{
+    transform: rotate(180deg);
+}
+
+#faqs-questions > li[data-view='closed'] .faqs-arrow svg{
+    transform: rotate(0);
+}
+li[data-view] span:first-child:not(li[data-view='closed'] span:first-child){
+    color: #939393;
+    font-size: 1.05rem;
+    font-weight: 400;
+}
+span.answer{
+    margin-top: 25px;
+    line-height: 1.5;
+}
+
+#partner-box, #partners-box,
+div.mobile-apps{
+    display: flex;
+    gap: .7rem;
+    align-items: center;
+}
+
+#partner-box, #lang{
+    padding: 0 1rem;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+#lang{
+    border-width: 1.5px 0;
+    border-color: #939393;
+    border-style: solid;
+}
+
+#partner-box div:first-child{
+    min-width: 150px;
+}
+
+#partner-box div:first-child > span,
+#how-it-works > a > button{
+    color: #00b6f0;
+}
+
+#partners-box{
+    max-width: auto;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+#partners-box::-webkit-scrollbar{
+    display: none;
+}
+
+
+.partner-logo img{
+    max-width: 5rem;
+}
+
+.partner-logo:first-child img{
+     max-width: 8rem;
+}
+
+.star svg{
+    width: .95rem;
+    fill: #ffa600;
+}
+
+#partner-box p{
+    font-weight: 550;
+}
+
+#foot{
+    padding: 0 1rem;
+}
+
+#menu-help{
+    padding: 0 1rem;
+}
+
+@media (min-width:765px) {
+    #menu-help{
+        display: flex;
+        align-items:flex-start;
+        justify-content: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap: 1rem;
+    }
+}
+
+@media (max-width:765px) {
+    #menu{
+        display: none;
+    }
+
+    #mobile-ticket-content > img{
+        display: none;
+    }
+}
+
+#menu-help li{
+    margin: 20px 0;
+}
+
+#how-it-works > a{
+    width: 100%;
+    display: inline-block;
+    margin: 0 0 30px;
+}
+
+#how-it-works > a > button{
+    width: 100%;
+    padding: 15px 0;
+    font-size: 1.15rem;
+    border-radius: .5rem;
+}
+
+div.mobile-apps{
+    gap: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.mobile-apps > button:first-child img{
+    min-width: 140px;
+}
+
+span.download-reviews{
+    font-size: .8rem;
+}
+
+#lang{
+    margin: 40px 0 0;
+    border-bottom: none;
+    padding-top: 30px;
+}
+
+#event_name{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+#evt-location{
+    margin-bottom: 10px;
+}
+
+#foot-form{
+    display: none;
+}
+
+#loading-gif{
+    position: absolute;
+    width: 2rem;
+    background-color: #00b6f0;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+#loading-gif[data-hidden='true']{
+    display: none;
+}
+
+@media (min-width:765px) {
+    section:not(#head), #foot{
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    header #logo svg{
+        width: 15rem;
+    }
+
+    #hamburger{
+        display: none;
+    }
+
+    header, #header-content{
+        z-index: 1;
+    }
+
+    header #logo{
+        margin-right: auto;
+    }
+
+    #background-image{
+        overflow: hidden;
+        position: absolute;
+    }
+
+    #background-image > img{
+        transform: scale(1.1);
+        filter: blur(.6rem);
+        z-index: -2;
+        max-height: 450px;
+    }
+
+    #head{
+        max-height: 400px;
+        overflow: hidden;
+    }
+
+    section#mobile-ticket-content{
+        color: white;
+        margin-top: 3.5rem;
+        margin-bottom: 4rem;
+    }
+    #mobile-ticket-content > img{
+        width: 15rem;
+        border-radius: .5rem;
+    }
+
+    #mobile-ticket-content p{
+        font-size: 1.3rem;
+    }
+
+    p#event_name{
+        font-size: 3.5rem;
+        font-weight: 600rem;
+        margin: 15px 0;
+    }
+
+    #tix-quantity{
+        gap: 1rem;
+        flex-wrap: nowrap;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+    #tix-quantity > *{
+        width: 33%;
+        font-size: 2.3rem;
+    }
+    #pricing-detail{
+        width: fit-content;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #pricing-detail > span:first-child{
+        font-size: 2.3rem;
+    }
+
+    #num-of-tix > span{
+        margin: 0 .5rem;
+    }
+
+    #buy-tix-btn button{
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+    }
+
+    #faqs{
+        padding: 0 1rem;
+    }
+
+    #faqs > h3{
+        font-size: 2rem;
+    }
+    ul#faqs-questions > li{
+        font-size: 1.4rem;
+    }
+
+    #faqs-questions > li .faqs-arrow svg{
+        width: 1.8rem;
+        position: relative;
+        top: 0.2rem;
+    }
+
+    #faqs-questions > li[data-view=''] span:first-child {
+        font-size: 1.3rem;
+    }
+
+    #partner-box{
+        justify-content: center;
+        margin: 0 auto;
+        gap: 2rem;
+    }
+
+    #partner-box p{
+        font-size: 1.5rem;
+    }
+    #partner-box > div > span{
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    #partner-box, #lang{
+        padding-bottom: 20px;
+        padding-top: 20px;
+        gap: 1rem;
+        margin-bottom: 20px;
+    }
+
+    #menu-help > *{
+        width: 30%;
+    }
+
+    .mobile-apps > button:first-child img {
+        min-width: 80px;
+        width: 8rem;
+    }
+
+    #lang > p{
+        margin-left: 17rem;
+    }
+}
+
+
+#partners-div{
+    border: 1.5px solid #939393;
+    border-left: none;
+    border-right: none;
+    margin: 70px 0;
+    padding: 20px 0 0;
+}
+
+@media (min-width:990px) {
+    #partner-box{
+        margin: 0 auto;
+        gap: 4rem;
+    }
+
+    #partners-box{
+        gap: 2rem;
+    }
+
+}

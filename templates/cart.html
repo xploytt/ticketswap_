@@ -1,0 +1,51 @@
+{% extends 'base_method_cart.html' %}
+
+{% block title %}
+Cart – Buy and sell tickets – TicketSwap
+{% endblock %}
+
+{% block headStyle %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/cart.css')}}">
+<link rel="stylesheet" href="{{url_for('static', filename='css/method.css')}}">
+<script src="{{url_for('static', filename='js/cart.js')}}" defer></script>
+{{super()}}
+{% endblock %}
+
+{% block content %}
+<section id="content">
+    <h2 class="cart-heading">
+        Cart
+    </h2>
+    <p>Your tickets are reserved for 10 minutes</p>
+
+    <div id="ticket-details">
+        <p>
+            {{num_of_tickets}} x {{event_name}}
+        </p>
+        <p id='dateLocation'>{{event_datetime}}</p>
+    
+        <p id="cart-extra-info">{{cart_info}}</p>
+        <p id="uid" style="display:none;" data-uid={{uid}}></p>
+    
+        <div>
+            <div id="pp-jpeg">
+                <img src="{{url_for('static', filename='assets/pp.jpeg')}}" alt="">
+            </div>
+            <p>{{price}} / ticket</p>
+        </div>
+        <p id="add-discount">Add discount code</p>
+    </div>
+
+    <div id="contd-div">
+        <div id="total">Total {{price}}
+            <span>
+                <svg aria-label="InfoRounded" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.414" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false" viewBox="0 0 32 32" preserveAspectRatio="xMidYMid meet" class="css-1nanc4n e1ouvt3m0"><path d="M18 16a2 2 0 1 0-4 0v6a2 2 0 1 0 4 0v-6zm-2-8a2 2 0 1 0-.001 3.999A2 2 0 0 0 16 8zm0 22C8.28 30 2 23.72 2 16S8.28 2 16 2s14 6.28 14 14-6.28 14-14 14z"></path></svg>
+            </span>
+    
+            
+        </div>
+        <button type="" id="continue-btn">Continue</button>
+    </div>
+
+</section>
+{% endblock %}

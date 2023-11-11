@@ -1,0 +1,103 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+}
+
+#root{
+    padding: 1rem 1rem;
+}
+
+:root{
+    --ticket-blue: #00b6f0;
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ nav{
+    display: flex;
+    align-items: center;
+    color: var(--ticket-blue);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+nav .logo{
+    margin-right: auto;
+}
+
+ nav .logo svg{
+    fill: var(--ticket-blue);
+    width: 10rem;
+}
+
+nav > a:last-child{
+    background-color: #f0fbfe;
+    padding: .9rem 1.2rem;
+    border-radius: .7rem;
+    margin-left: 1.5rem;
+    font-size: 90%;
+}
+
+
+
+/* footer styles */
+
+#footer ul{
+    border-top: 1px solid #c1c5c7;
+    line-height: 1.5;
+    margin: 15px 0 50px;
+}
+
+#footer ul li{
+    list-style-type: none;
+    margin-top: 15px;
+}
+
+#footer ul li svg{
+    width: 1.2rem;
+    height: 1.2rem;
+    position: relative;
+    top: .3rem;
+    margin-right: .5rem;
+    fill: var(--ticket-blue);
+}
+
+#footer ul li div > span:first-child{
+    font-weight: 500;
+    color: #1a2129;
+    font-size: .92rem;
+    
+}
+
+#footer ul li div > span:last-child{
+    color: #667175;
+    padding-left: 2rem;
+    display: block;
+    font-size: .98rem;
+}
+
+@media (min-width:765px) {
+    nav .logo svg{
+        width: 14rem;
+    }
+
+    nav a, nav > a:last-child{
+        font-size: 1.3rem;
+    }
+
+    #footer{
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    #footer ul{
+        padding-top: 20px;
+    }
+}
