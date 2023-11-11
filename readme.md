@@ -22,7 +22,7 @@ The Event Ticketing Web App is a Flask-based web server designed to facilitate t
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/xploytt/ticketswap_.git
    cd your-repo
    ```
 
