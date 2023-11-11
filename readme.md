@@ -7,7 +7,6 @@
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Configuration](#configuration)
 - [Features](#features)
 - [Dependencies](#dependencies)
 - [Contributing](#contributing)
@@ -52,10 +51,6 @@ The Event Ticketing Web App is a Flask-based web server designed to facilitate t
   -Event links to purchase the ticket will be sent to the buyer email, or:
 - Share private links generated for each event for ticket purchases.
 
-## Configuration
-
-The application uses environment variables for configuration. You can customize the configuration by creating a `.env` file based on the provided `.env.example`. This file should include details such as secret keys, mail server configuration, and other sensitive information.
-
 ## Features
 
 - **User Authentication**: Secure login using a passcode.
@@ -75,7 +70,7 @@ The application uses environment variables for configuration. You can customize 
 
 ## Contributing
 
-Contributions are welcome! Feel free to open issues or submit pull requests.
+Thank you. Feel free to make a pull request!
 
 ## License
 
